@@ -1,9 +1,7 @@
 #include <iostream>
 #include <Winsock2.h>
-#include <WS2tcpip.h>
 #include <conio.h>
 using namespace std;
-#pragma comment(lib, "ws2_32.lib")
 
 SOCKET sockfd;
 SOCKET acceptSock;
@@ -97,7 +95,7 @@ void Accept(){
 	cout<<"Connected."<<endl;
 }
 
-int input(int arr[],int val){
+void input(int arr[],int val){
 	cout<<"\nYour Turn - ";
 		do{
 			cin>>val;
@@ -131,23 +129,11 @@ bool winOrTie(int arr[]){
 	return false;
 }
 
-void playagain(char &playAgain){
-	cout<<"\nPlay Again?(y/n) - "<<endl;
-	do
-		cin>>playAgain;
-	while(playAgain!='y'||playAgain!='n');
-	if(playAgain!='y'){
-		closesocket(acceptSock);
-		WSACleanup();
-		exit(0);
-	}
-}
 int main() {
 	int listen=ServerSock();
 	cout<<"listening..."<<endl;
 	Accept();
 	char playAgain;
-//	do{
 	int arr[9]={1,2,3,4,5,6,7,8,9},val;
 	while(true){
 		if(winOrTie(arr))
@@ -171,8 +157,6 @@ int main() {
 			return 1;
 		}
 	}
-//		playagain(playAgain);
-//	}while(playAgain=='y');
     getch();
     return 0;
 }

@@ -61,7 +61,7 @@ int ClientSock(){
 	cout<<"Connection Established!"<<" Connection Status : "<<wsadata.szSystemStatus<<endl;
 	//getaddrinfo
 	addrinfo* result=nullptr;
-	int status=getaddrinfo("address link here","port no here",nullptr,&result);
+	int status=getaddrinfo("address link here","port no here",nullptr,&result);   //put your host address and port here
 	if (status != 0) {
         cerr<<"getaddrinfo error: "<<gai_strerror(status)<<endl;
         WSACleanup();
@@ -83,9 +83,10 @@ int ClientSock(){
 		return 1;
 	}
 	cout<<"Connected."<<endl;
+	return 0;
 }
 
-int input(int arr[],int val){
+void input(int arr[],int val){
 	cout<<"\nYour Turn - ";
 	do{
 		cin>>val;
@@ -118,21 +119,6 @@ bool winOrTie(int arr[]){
 		return true;
 	}
 	return false;
-}
-
-void playagain(char &playAgain){
-//	cout<<"\nPlay Again?(y/n) - "<<endl;
-//	do
-//		cin>>playAgain;
-//	while(playAgain!='y'||playAgain!='n');
-//	if(playAgain!='y'){
-//		closesocket(clientSockfd);
-//		WSACleanup();
-//		exit(0);
-//	}
-//	else if(playAgain==
-//		send(clientSockfd,(char*)&arr)'y'){
-//	}
 }
 
 int main(void){
