@@ -1,6 +1,6 @@
 # Tic_Tac_Toe
 - Multiplayer Tic-Tac-Toe game using C++ socket programming and accessible over the internet
-- Compile your C++ code with the -lws2_32 flag, and then use 'ngrok' to expose your local server.
+- Compile your C++ code with the -lws2_32, and then use 'ngrok' to expose your local server.
 
 ##### Server
 ```cpp
